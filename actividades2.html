@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actividades 1.2 — Derecho Informático</title>
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    /* Tarjetas de mapas conceptuales */
+    .mapa-card{
+      display:flex; align-items:center; gap:24px;
+      background:linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+      border:1px solid var(--border); border-radius:10px;
+      padding:28px 32px; margin-bottom:20px;
+      text-decoration:none; color:var(--text);
+      transition:transform .25s, border-color .25s, box-shadow .25s;
+      position:relative; overflow:hidden;
+    }
+    .mapa-card::before{
+      content:''; position:absolute; left:0; top:0; bottom:0; width:4px;
+      background:var(--gold);
+    }
+    .mapa-card:hover{
+      transform:translateY(-3px); border-color:var(--gold-line);
+      box-shadow:0 18px 52px rgba(0,0,0,0.55);
+    }
+    .mapa-card .icon{
+      font-size:54px; flex-shrink:0;
+      width:84px; height:84px;
+      display:flex; align-items:center; justify-content:center;
+      background:var(--gold-dim); border:1px solid var(--gold-line);
+      border-radius:12px;
+    }
+    .mapa-card .info{flex:1;}
+    .mapa-card .info h3{
+      font-family:'Cormorant Garamond', serif;
+      font-size:24px; color:var(--white); margin-bottom:6px;
+    }
+    .mapa-card .info p{font-size:13.5px; color:#9a9896; margin:0;}
+    .mapa-card .cta{
+      font-size:11px; font-weight:600; letter-spacing:0.14em;
+      text-transform:uppercase; color:var(--gold);
+      border:1px solid var(--gold-line); background:var(--gold-dim);
+      padding:8px 14px; border-radius:4px; flex-shrink:0;
+    }
+    @media(max-width:700px){
+      .mapa-card{flex-direction:column; align-items:flex-start; padding:20px 18px; gap:14px;}
+      .mapa-card .icon{width:60px; height:60px; font-size:36px;}
+      .mapa-card .info h3{font-size:20px;}
+      .mapa-card .cta{align-self:stretch; text-align:center;}
+    }
+
+    /* Tarjetas de noticias / casos */
+    .news-card{
+      background:var(--surface); border:1px solid var(--border);
+      border-radius:10px; padding:28px 32px; margin-bottom:16px;
+    }
+    .news-card .source{
+      display:inline-block; font-size:10px; font-weight:600;
+      letter-spacing:0.18em; text-transform:uppercase;
+      color:#888; border:1px solid var(--border);
+      padding:3px 10px; border-radius:3px; margin-bottom:14px;
+    }
+    .news-card h3{
+      font-family:'Cormorant Garamond', serif;
+      font-size:22px; color:var(--white); margin-bottom:10px;
+    }
+    .news-card .meta{
+      display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;
+      margin-top:14px; padding-top:14px; border-top:1px solid var(--border);
+    }
+    .news-card .meta-block strong{
+      display:block; font-size:10px; font-weight:600;
+      letter-spacing:0.14em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:6px;
+    }
+    .news-card .meta-block span{
+      font-size:12.5px; color:#9a9896; font-weight:300;
+      display:block; line-height:1.5;
+    }
+    @media(max-width:700px){
+      .news-card{padding:18px 16px;}
+      .news-card h3{font-size:18px;}
+      .news-card .meta{grid-template-columns:1fr; gap:10px;}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <input type="checkbox" id="menu-toggle" class="menu-toggle">
+  <label for="menu-toggle" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="resultado1.html">Resultado 1.1</a></li>
+    <li><a href="resultado2.html">Resultado 1.2</a></li>
+    <li><a href="resultado21.html">Resultado 2.1</a></li>
+    <li><a href="resultado22.html">Resultado 2.2</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <img class="hero-img" src="recurvisual/hero_resultado2.jpg" alt="Actividades 1.2">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Actividades del Resultado 1.2</span>
+    <h1>Software, Equipo de Cómputo y Mapas Conceptuales</h1>
+    <p>Tres mapas conceptuales, cuestionario sobre licencias y normativas, y casos reales de delitos cibernéticos en México (2026).</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ══════════════════════════════════════
+       MAPA CONCEPTUAL 1
+  ═══════════════════════════════════════ -->
+  <div class="section-label">Mapa Conceptual 1 — Categorías de Delitos Informáticos</div>
+
+  <a class="mapa-card" href="mapa_delitos.html">
+    <div class="icon">🔒</div>
+    <div class="info">
+      <h3>Delitos Informáticos</h3>
+      <p>Clasificación visual en cuatro grandes categorías: contra la integridad y confidencialidad, contra el patrimonio, contra la libertad sexual, y contra la seguridad y la sociedad.</p>
+    </div>
+    <span class="cta">Ver mapa →</span>
+  </a>
+
+  <!-- ══════════════════════════════════════
+       ACTIVIDAD — LICENCIAS DE SOFTWARE
+  ═══════════════════════════════════════ -->
+  <div class="section-label" style="margin-top:52px;">Actividad — Software y Licencias</div>
+
+  <div class="card">
+    <span class="card-tag">Pregunta 1</span>
+    <h2>¿Qué es una Licencia de Software?</h2>
+    <p>En términos simples, una licencia de software es un contrato legal entre el autor o dueño de un programa informático (el <strong>licenciante</strong>) y el usuario (el <strong>licenciatario</strong>). A diferencia de un objeto físico (como un libro o una silla), cuando "compras" software, generalmente no estás adquiriendo la propiedad de la obra en sí, sino el derecho legal de usarla bajo condiciones específicas. Es, en esencia, el permiso que te otorga el creador para que no infrinjas las leyes de propiedad intelectual y derechos de autor (copyright).</p>
+
+    <h3>Componentes Clave de una Licencia</h3>
+    <ul>
+      <li><strong>Uso:</strong> Define en cuántos dispositivos se puede instalar y quiénes pueden usarlo.</li>
+      <li><strong>Distribución:</strong> Establece si tienes permitido copiar el software y compartirlo con terceros.</li>
+      <li><strong>Modificación:</strong> Indica si tienes permiso para ver el código fuente y realizar cambios en él.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">Pregunta 2</span>
+    <h2>Elementos de una Licencia de Software</h2>
+
+    <h3>a) Licenciante</h3>
+    <p>Es el proveedor, autor o titular de los derechos de propiedad intelectual del software. Se trata de la entidad (ya sea una persona física, una empresa como Microsoft, o una organización de código abierto) que posee la autoridad legal para permitir que otros utilicen su creación.</p>
+    <p><strong>Su función:</strong> Establece las reglas, límites y permisos bajo los cuales entrega el programa.</p>
+
+    <h3>b) Licenciatario</h3>
+    <p>Es el usuario final, cliente o empresa que adquiere el derecho de uso del software. Al aceptar los términos de la licencia, el licenciatario se compromete a seguir las normas dictadas por el licenciante.</p>
+    <p><strong>Su función:</strong> Es quien utiliza la herramienta para sus actividades personales o profesionales, respetando las restricciones de instalación y distribución pactadas.</p>
+
+    <h3>c) Plazo</h3>
+    <p>Se refiere al periodo de tiempo durante el cual el contrato es válido y el usuario tiene permiso para utilizar el software. Existen principalmente dos modalidades:</p>
+    <ul>
+      <li><strong>Perpetuo:</strong> Pagas una vez y tienes derecho a usar esa versión específica del programa para siempre (común en licencias antiguas o de compra única).</li>
+      <li><strong>Suscripción:</strong> El derecho de uso está limitado a un tiempo determinado (mensual o anual). Una vez vencido el plazo, si no se renueva, el software deja de ser funcional o su uso se vuelve ilegal.</li>
+    </ul>
+
+    <h3>d) Precio</h3>
+    <p>Es la contraprestación económica que el licenciatario debe pagar al licenciante para obtener el derecho de uso. El precio puede ser un pago único, una cuota recurrente (suscripción), o incluso ser cero ($0) en el caso del software gratuito o de código abierto. Cabe destacar que, aunque el precio sea cero, la licencia sigue existiendo para dictar cómo se debe usar el programa.</p>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">Pregunta 3</span>
+    <h2>Rol del Licenciante</h2>
+    <p>El licenciante es quien <strong>concede el permiso</strong> y <strong>define las condiciones</strong> para que el software sea utilizado, manteniendo siempre la propiedad original del producto. Establece reglas sobre uso, distribución y modificación, y se encarga de hacer valer sus derechos de propiedad intelectual ante posibles infracciones.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       MAPA CONCEPTUAL 2
+  ═══════════════════════════════════════ -->
+  <div class="section-label" style="margin-top:52px;">Mapa Conceptual 2 — Licencias de Software</div>
+
+  <a class="mapa-card" href="mapa_licencias.html">
+    <div class="icon">💻</div>
+    <div class="info">
+      <h3>Licencias de Software</h3>
+      <p>Beneficios de cumplir con las licencias, principales incumplimientos (piratería, uso indebido, distribución) y consecuencias legales y económicas para el infractor.</p>
+    </div>
+    <span class="cta">Ver mapa →</span>
+  </a>
+
+  <!-- ══════════════════════════════════════
+       CASOS REALES DE DELITOS CIBERNÉTICOS
+  ═══════════════════════════════════════ -->
+  <div class="section-label" style="margin-top:52px;">Casos Reales de Delitos Cibernéticos en México (2026)</div>
+
+  <div class="card">
+    <span class="card-tag">Investigación</span>
+    <h2>Panorama del Cibercrimen en México</h2>
+    <p>La Policía Cibernética reportó más de 14 mil denuncias por ciberdelitos durante 2026. A continuación se presentan cinco casos representativos extraídos de medios nacionales que ilustran la diversidad de delitos digitales y la respuesta normativa del Estado mexicano.</p>
+  </div>
+
+  <div class="news-card">
+    <span class="source">Fuente: La Jornada</span>
+    <h3>1. Fraudes con aplicaciones "montadeudas"</h3>
+    <p>La Policía Cibernética reportó más de 14 mil denuncias por ciberdelitos en 2026. Uno de los principales problemas fueron las aplicaciones de préstamos falsas llamadas "montadeudas", que roban información y amenazan a los usuarios.</p>
+    <div class="meta">
+      <div class="meta-block">
+        <strong>Delito Informático</strong>
+        <span>Robo de datos personales, fraude digital y extorsión.</span>
+      </div>
+      <div class="meta-block">
+        <strong>Norma Aplicada</strong>
+        <span>Código Penal Federal y Ley Federal de Protección de Datos Personales.</span>
+      </div>
+      <div class="meta-block">
+        <strong>Sanciones</strong>
+        <span>Multas económicas y prisión por fraude y extorsión digital.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <span class="source">Fuente: El Heraldo de México</span>
+    <h3>2. Fraudes en redes sociales y páginas falsas</h3>
+    <p>Las autoridades detectaron miles de estafas mediante redes sociales y sitios web falsos donde se ofrecían productos inexistentes, suplantando marcas reconocidas para obtener datos bancarios de las víctimas.</p>
+    <div class="meta">
+      <div class="meta-block">
+        <strong>Delito Informático</strong>
+        <span>Suplantación de identidad y fraude electrónico.</span>
+      </div>
+      <div class="meta-block">
+        <strong>Norma Aplicada</strong>
+        <span>Código Penal Federal y Ley Olimpia (en casos relacionados con difusión digital).</span>
+      </div>
+      <div class="meta-block">
+        <strong>Sanciones</strong>
+        <span>Cárcel, multas y bloqueo de cuentas y sitios web.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <span class="source">Fuente: Reporte Índigo</span>
+    <h3>3. Robo y vulneración de cuentas digitales</h3>
+    <p>Se registraron numerosos ataques a cuentas de mensajería y plataformas digitales mediante robo de contraseñas y phishing, comprometiendo la privacidad de miles de usuarios mexicanos.</p>
+    <div class="meta">
+      <div class="meta-block">
+        <strong>Delito Informático</strong>
+        <span>Acceso ilícito a sistemas y cuentas.</span>
+      </div>
+      <div class="meta-block">
+        <strong>Norma Aplicada</strong>
+        <span>Código Penal Federal en materia de acceso ilícito a sistemas informáticos.</span>
+      </div>
+      <div class="meta-block">
+        <strong>Sanciones</strong>
+        <span>Prisión y sanciones económicas.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <span class="source">Fuente: Publimetro México</span>
+    <h3>4. Ley de ciberasedio en Puebla</h3>
+    <p>La Suprema Corte invalidó una ley de "ciberasedio" porque tenía definiciones ambiguas que podían afectar la libertad de expresión. La norma contemplaba penas de prisión y multas que finalmente no se aplicaron.</p>
+    <div class="meta">
+      <div class="meta-block">
+        <strong>Tema</strong>
+        <span>Normas digitales y regulación del internet.</span>
+      </div>
+      <div class="meta-block">
+        <strong>Sanciones Contempladas</strong>
+        <span>De 6 meses a 3 años de prisión y multas económicas.</span>
+      </div>
+      <div class="meta-block">
+        <strong>Resultado</strong>
+        <span>La SCJN anuló la ley por inconstitucionalidad.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <span class="source">Fuente: Infobae México</span>
+    <h3>5. Nueva ley contra la extorsión digital</h3>
+    <p>En México comenzó a aplicarse una nueva ley para prevenir y sancionar delitos de extorsión, incluyendo amenazas y delitos cometidos mediante tecnología, telefonía móvil y plataformas digitales.</p>
+    <div class="meta">
+      <div class="meta-block">
+        <strong>Delito Informático</strong>
+        <span>Extorsión mediante llamadas, mensajes y medios digitales.</span>
+      </div>
+      <div class="meta-block">
+        <strong>Norma Aplicada</strong>
+        <span>Ley General para Prevenir, Investigar y Sancionar los Delitos en Materia de Extorsión.</span>
+      </div>
+      <div class="meta-block">
+        <strong>Sanciones</strong>
+        <span>Prisión e investigaciones a cargo de fiscalías especializadas.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       ACTIVIDAD — EQUIPO DE CÓMPUTO
+  ═══════════════════════════════════════ -->
+  <div class="section-label" style="margin-top:52px;">Actividad — Equipo de Cómputo y Robo</div>
+
+  <div class="card">
+    <span class="card-tag">Pregunta 4</span>
+    <h2>Normativas Aplicadas al Equipo de Cómputo</h2>
+    <p>En el contexto de un proyecto de negocio (como una tienda o taller de computación), las siguientes reglas sirven de base para crear el manual de procedimientos internos y asegurar que los activos de la empresa duren el mayor tiempo posible.</p>
+
+    <h3>a) De la Responsabilidad</h3>
+    <p>Esta normativa define quién es el dueño del equipo y quién debe responder por él.</p>
+    <ul>
+      <li><strong>Asignación:</strong> Cada computadora tiene un responsable directo (empleado o estudiante) que firma un resguardo al recibirla.</li>
+      <li><strong>Uso adecuado:</strong> El equipo debe ser utilizado exclusivamente para fines laborales o académicos, prohibiendo actividades de ocio que pongan en riesgo el sistema.</li>
+      <li><strong>Custodia:</strong> Es responsabilidad del usuario reportar de inmediato cualquier robo, extravío o daño físico que sufra el equipo mientras esté bajo su cargo.</li>
+    </ul>
+
+    <h3>b) Del Respaldo, Ambiente y Limpieza</h3>
+    <p>Se enfoca en la preservación física y digital de las herramientas de trabajo.</p>
+    <ul>
+      <li><strong>Respaldo (Backup):</strong> El usuario debe realizar copias de seguridad periódicas de su información importante en la nube o discos externos, ya que la institución no se hace responsable por pérdida de datos tras una falla técnica.</li>
+      <li><strong>Ambiente:</strong> El equipo debe estar en lugares con ventilación adecuada, lejos de la luz solar directa y sobre superficies estables para evitar caídas.</li>
+      <li><strong>Limpieza:</strong> Se prohíbe consumir alimentos o bebidas cerca del hardware. Además, se establecen calendarios para que el personal técnico realice limpieza interna (sopleteo) y externa de los componentes.</li>
+    </ul>
+
+    <h3>c) Servicios Institucionales</h3>
+    <p>Regula el acceso a la infraestructura y soporte proporcionado por la organización.</p>
+    <ul>
+      <li><strong>Conectividad:</strong> Define las reglas de uso del Wi-Fi y la red interna (qué sitios se pueden visitar y el ancho de banda permitido).</li>
+      <li><strong>Soporte Técnico:</strong> Establece el procedimiento para solicitar reparaciones o actualizaciones de software (generalmente a través de un sistema de tickets).</li>
+      <li><strong>Software Oficial:</strong> Solo se permite la instalación de programas que cuenten con licencia institucional; instalar software pirata suele ser una falta grave.</li>
+    </ul>
+
+    <h3>d) Adquisiciones de Equipo de Cómputo y Suministros</h3>
+    <p>Dicta el proceso para comprar nuevos recursos.</p>
+    <ul>
+      <li><strong>Estandarización:</strong> Define qué características técnicas deben tener las computadoras que se compran (procesador, RAM, almacenamiento) para que sean compatibles con el resto de la empresa.</li>
+      <li><strong>Proveedores:</strong> Solo se puede comprar a proveedores autorizados que ofrezcan garantía y factura legal.</li>
+      <li><strong>Consumibles:</strong> Regula la entrega de suministros como tintas, tóner, cables o teclados, exigiendo generalmente la entrega del componente dañado para recibir uno nuevo (política de intercambio).</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">Pregunta 5</span>
+    <h2>Riesgos del Acceso No Autorizado a Equipos de Cómputo y Telecomunicaciones</h2>
+
+    <h3>Riesgos para las Empresas</h3>
+    <ul>
+      <li><strong>Pérdida de propiedad intelectual:</strong> Robo de secretos industriales, bases de datos de clientes o planes de negocios, lo que puede destruir la ventaja competitiva.</li>
+      <li><strong>Interrupción operativa:</strong> Ataques como el ransomware pueden secuestrar los sistemas, deteniendo por completo las actividades de la empresa y causando pérdidas económicas masivas.</li>
+      <li><strong>Daño reputacional:</strong> La pérdida de confianza por parte de los clientes tras una filtración de datos puede llevar al cierre del negocio.</li>
+      <li><strong>Sanciones legales:</strong> Incumplimiento de las leyes de protección de datos personales, lo que deriva en multas gubernamentales severas.</li>
+    </ul>
+
+    <h3>Riesgos para los Usuarios</h3>
+    <ul>
+      <li><strong>Suplantación de identidad:</strong> Uso de los datos personales para cometer fraudes, solicitar créditos o realizar compras a nombre de la víctima.</li>
+      <li><strong>Extorsión y chantaje:</strong> Acceso a fotografías, correos o documentos privados que pueden ser utilizados para amenazar al usuario.</li>
+      <li><strong>Pérdida financiera:</strong> Acceso directo a cuentas bancarias o servicios de pago en línea para sustraer fondos.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">Pregunta 6</span>
+    <h2>Medidas para Evitar el Acceso No Autorizado</h2>
+    <div class="virus-grid">
+      <div class="virus-item">
+        <strong>Autenticación MFA</strong>
+        <span>Añadir una capa extra de seguridad (como un código al celular) además de la contraseña.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Cifrado de Datos</strong>
+        <span>Encriptar la información sensible tanto en el disco duro como en el envío por red.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Firewall y Antivirus</strong>
+        <span>Mantener barreras activas que filtren el tráfico malicioso y detecten intrusos.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Actualizaciones Constantes</strong>
+        <span>Instalar parches de seguridad para corregir vulnerabilidades del sistema y programas.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Control de Acceso Físico</strong>
+        <span>Asegurar con llave los racks de telecomunicaciones y limitar la conexión de USB.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Contraseñas Robustas</strong>
+        <span>Combinar mayúsculas, minúsculas, números y símbolos; renovar periódicamente.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">Pregunta 7</span>
+    <h2>Artículos 367 al 370 del Código Penal Federal — Robo de Equipo</h2>
+
+    <h3>Artículo 367 — Definición de Robo</h3>
+    <p>Define el delito de robo. Comete este delito quien <strong>se apodera de una cosa ajena mueble</strong> (como una laptop o un servidor), sin derecho y sin consentimiento del dueño.</p>
+
+    <h3>Artículo 368 — Equiparación al Robo</h3>
+    <p>Equipara al robo el aprovechamiento de <strong>energía eléctrica u otros fluidos</strong> (como el internet o señales de telecomunicaciones) sin derecho, así como el uso de bienes muebles ajenos sin permiso.</p>
+
+    <h3>Artículo 369 — Consumación del Delito</h3>
+    <p>Determina que el robo se considera consumado <strong>desde el momento en que el ladrón tiene el objeto en su poder</strong>, aunque lo abandone después o lo desapoderen de él.</p>
+
+    <h3>Artículo 370 — Sanciones según el Valor</h3>
+    <p>Establece las sanciones y penas de prisión. Estas varían dependiendo del valor de lo robado (calculado en veces el valor de la <strong>Unidad de Medida y Actualización — UMA</strong>). A mayor valor del equipo de cómputo sustraído, mayor es la pena de cárcel.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       MAPA CONCEPTUAL 3 — FINAL
+  ═══════════════════════════════════════ -->
+  <div class="section-label" style="margin-top:52px;">Mapa Conceptual 3 — Cierre del Portafolio</div>
+
+  <a class="mapa-card" href="mapa_autoria.html">
+    <div class="icon">⚖️</div>
+    <div class="info">
+      <h3>Autoría y Creación de Software</h3>
+      <p>Mapa final que integra propiedad intelectual, propiedad industrial, registro ante INDAUTOR, contratos y licencias, y la diferencia entre software privativo y software libre.</p>
+    </div>
+    <span class="cta">Ver mapa →</span>
+  </a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultado 2.2 — Software, Internet y Correo Electrónico</title>
+  <meta name="description" content="Normatividad y controles aplicables al software, sistemas de información, servicios de internet y correo electrónico.">
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    /* Sección de videos */
+    .video-upload-area {
+      border: 2px dashed var(--gold-line);
+      border-radius: 12px;
+      padding: 40px 30px;
+      text-align: center;
+      background: var(--gold-dim);
+      transition: border-color .3s, background .3s;
+      margin-top: 16px;
+    }
+    .video-upload-area:hover {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.15);
+    }
+    .video-upload-area .upload-icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .video-upload-area p {
+      color: #9a9896;
+      font-size: 13.5px;
+      font-weight: 300;
+      margin-bottom: 8px;
+    }
+    .video-upload-area .upload-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold-line);
+      background: var(--gold-dim);
+      padding: 10px 24px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+      margin-top: 8px;
+    }
+    .video-upload-area .upload-label:hover {
+      background: var(--gold);
+      color: #000;
+    }
+    .video-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px 32px;
+      margin-bottom: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .video-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--gold);
+    }
+    .video-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .video-card p {
+      font-size: 13.5px;
+      color: #9a9896;
+      font-weight: 300;
+      margin-bottom: 12px;
+    }
+    .video-card .video-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .video-card .video-topic {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--gold);
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-line);
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+    .youtube-player {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+    .youtube-player iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .video-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .ctrl-btn {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gold);
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-line);
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: inherit;
+    }
+    .ctrl-btn:hover {
+      background: var(--gold);
+      color: #000;
+    }
+    .ctrl-next {
+      margin-left: auto;
+      background: rgba(201,168,76,0.25);
+      border-color: var(--gold);
+      font-weight: 600;
+    }
+    .ctrl-next:hover {
+      background: var(--gold);
+      color: #000;
+    }
+    .mini-player {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 320px;
+      z-index: 9999;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      border: 2px solid var(--gold);
+      background: #000;
+    }
+    .mini-player .youtube-player {
+      margin-bottom: 0;
+      border-radius: 0;
+      border: none;
+    }
+    .mini-player .mini-close {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      line-height: 1;
+    }
+    .mini-player .mini-close:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    @media(max-width:700px){
+      .video-upload-area { padding: 24px 16px; }
+      .video-card { padding: 18px 16px; }
+      .video-card h3 { font-size: 18px; }
+      .mini-player { width: 240px; bottom: 10px; right: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <input type="checkbox" id="menu-toggle" class="menu-toggle">
+  <label for="menu-toggle" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="resultado1.html">Resultado 1.1</a></li>
+    <li><a href="resultado2.html">Resultado 1.2</a></li>
+    <li><a href="resultado21.html">Resultado 2.1</a></li>
+    <li><a href="resultado22.html" class="active">Resultado 2.2</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <img class="hero-img" src="recurvisual/hero_resultado2.jpg" alt="Software, Internet y Correo Electrónico">
+  <div class="hero-overlay"></div>
+  <div class="hero-content hero-flex">
+    <div class="hero-text">
+      <span class="hero-eyebrow">Resultado de Aprendizaje 2.2</span>
+      <h1>Software, Internet y Correo Electrónico</h1>
+      <p>Relaciona la normatividad y controles aplicables al software, sistemas de información, servicios de internet y correo electrónico de una organización.</p>
+    </div>
+    <div>
+      <a href="actividades22.html" class="hero-btn">Ver Actividades 2.2</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ══════════════════════════════════════
+       A. POLÍTICAS DE SOFTWARE Y SISTEMAS
+  ═══════════════════════════════════════ -->
+  <div class="section-label">A. Políticas y controles aplicables al software y sistemas</div>
+
+  <div class="card">
+    <span class="card-tag">Software — Adquisición</span>
+    <h2>Adquisición de Programas de Cómputo</h2>
+    <img class="content-img" src="recurvisual/adquisicion_software.jpg" alt="Adquisición de programas de cómputo">
+    <p>Es el proceso de obtener programas que ayuden a realizar las actividades de la empresa. Deben seleccionarse de acuerdo con las necesidades de los usuarios.</p>
+    <p>La adquisición de software implica un análisis previo de las necesidades organizacionales, la evaluación de opciones disponibles en el mercado, la verificación de compatibilidad con la infraestructura existente y la negociación de términos de licenciamiento que se ajusten al presupuesto y alcance de la organización.</p>
+    <div class="tags">
+      <span class="tag">Análisis de necesidades</span>
+      <span class="tag">Evaluación de mercado</span>
+      <span class="tag">Compatibilidad</span>
+      <span class="tag">Presupuesto</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">Software — Licenciamiento</span>
+    <h2>Licenciamiento de Software</h2>
+    <img class="content-img" src="recurvisual/licenciamiento_software.jpg" alt="Licenciamiento de software">
+    <p>Son los permisos legales que autorizan el uso de un programa. Contar con licencias válidas evita problemas legales y garantiza un uso adecuado del software.</p>
+    <p>El licenciamiento establece las condiciones bajo las cuales un programa puede ser utilizado, distribuido o modificado. Las organizaciones deben mantener un inventario actualizado de todas sus licencias, verificar que el número de instalaciones no exceda lo permitido y renovar las suscripciones antes de su vencimiento para evitar sanciones.</p>
+    <div class="virus-grid">
+      <div class="virus-item">
+        <strong>Licencia Comercial</strong>
+        <span>Pago por uso con restricciones estrictas de copia y distribución.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Licencia Educativa</strong>
+        <span>Precio reducido exclusivo para instituciones académicas.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Software Libre (GPL)</strong>
+        <span>Uso, modificación y distribución libre del código fuente.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Freeware</strong>
+        <span>Gratuito pero sin acceso al código fuente del programa.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">Software — Instalación</span>
+    <h2>Instalación y/o Actualización de Programas de Cómputo</h2>
+    <img class="content-img" src="recurvisual/instalacion_software.jpg" alt="Instalación y actualización de software">
+    <p>Consiste en colocar nuevos programas en las computadoras o mejorar los ya existentes. Las actualizaciones ayudan a corregir errores y mejorar el funcionamiento.</p>
+    <p>La política de instalación debe establecer que solo el personal autorizado de TI puede instalar o actualizar software en los equipos de la organización. Se debe verificar que cada programa cuente con su respectiva licencia y que las actualizaciones sean probadas en un entorno de pruebas antes de implementarse en producción para evitar incompatibilidades.</p>
+    <div class="tags">
+      <span class="tag">Personal autorizado</span>
+      <span class="tag">Entorno de pruebas</span>
+      <span class="tag">Parches de seguridad</span>
+      <span class="tag">Control de versiones</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">Software — Respaldos</span>
+    <h2>Respaldos de Información</h2>
+    <img class="content-img" src="recurvisual/respaldos_informacion.jpg" alt="Respaldos de información">
+    <p>Son copias de seguridad de los datos importantes de la empresa. Permiten recuperar la información en caso de fallas, errores o pérdidas accidentales.</p>
+    <p>Los respaldos deben realizarse de forma periódica y automatizada, siguiendo la regla <strong>3-2-1</strong>: tres copias de los datos, en dos medios diferentes, con una copia fuera del sitio. La organización debe establecer la frecuencia de respaldo (diaria, semanal, mensual), los responsables de su ejecución y los procedimientos de restauración para garantizar la continuidad del negocio.</p>
+    <div class="virus-grid">
+      <div class="virus-item">
+        <strong>Respaldo Completo</strong>
+        <span>Copia de todos los datos del sistema en un momento determinado.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Respaldo Incremental</strong>
+        <span>Solo copia los datos que cambiaron desde el último respaldo.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Respaldo Diferencial</strong>
+        <span>Copia todos los cambios desde el último respaldo completo.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Almacenamiento en la Nube</strong>
+        <span>Respaldos en servidores remotos para protección contra desastres locales.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       B. POLÍTICAS DE INTERNET Y CORREO
+  ═══════════════════════════════════════ -->
+  <div class="section-label" style="margin-top:52px;">B. Políticas de servicios de internet y correo electrónico</div>
+
+  <div class="card">
+    <span class="card-tag">Internet — Acceso</span>
+    <h2>Acceso a Internet</h2>
+    <img class="content-img" src="recurvisual/acceso_internet.jpg" alt="Acceso a internet en la organización">
+    <p>Establece las reglas para el uso adecuado de internet dentro de la empresa. Su objetivo es garantizar que se utilice principalmente para actividades laborales.</p>
+    <p>Las políticas de acceso a internet definen qué sitios web están permitidos, cuáles están bloqueados, el ancho de banda asignado por usuario y los horarios de acceso. Se establecen filtros de contenido para bloquear páginas maliciosas, de entretenimiento o que puedan comprometer la seguridad de la red corporativa.</p>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">Internet — Revisión</span>
+    <h2>Revisión de Accesos a Internet</h2>
+    <img class="content-img-sm" src="recurvisual/revision_accesos.jpg" alt="Revisión de accesos a internet">
+    <p>Consiste en supervisar el uso de internet para verificar que se cumplan las normas establecidas y detectar posibles riesgos de seguridad.</p>
+    <p>La revisión de accesos implica el análisis de logs de navegación, la identificación de patrones de uso inusual y la generación de reportes periódicos. Esta actividad permite detectar intentos de acceso a sitios no autorizados, posibles fugas de información y el consumo excesivo de recursos de red.</p>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">Comunicación — Mensajería</span>
+    <h2>Uso de Sistemas de Mensajería Instantánea</h2>
+    <img class="content-img-sm" src="recurvisual/mensajeria_instantanea.jpg" alt="Sistemas de mensajería instantánea">
+    <p>Son normas para el uso de aplicaciones de mensajería dentro de la organización. Buscan mantener una comunicación adecuada y profesional.</p>
+    <p>Las políticas regulan qué plataformas de mensajería están autorizadas (como Microsoft Teams o Slack), establecen normas de conducta, prohíben el envío de información confidencial por canales no cifrados y definen los horarios de uso para mantener el equilibrio entre productividad y comunicación.</p>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">Seguridad — Usuarios</span>
+    <h2>Registro de Usuarios</h2>
+    <img class="content-img-sm" src="recurvisual/registro_usuarios.jpg" alt="Registro de usuarios en sistemas">
+    <p>Es el control de las personas autorizadas para utilizar los sistemas y servicios de la empresa. Permite identificar quién tiene acceso a cada recurso.</p>
+    <p>El registro de usuarios incluye la creación de cuentas, la asignación de permisos según el rol, la gestión de contraseñas y la desactivación de cuentas cuando un empleado deja la organización. Se debe mantener un directorio actualizado y aplicar el principio de mínimo privilegio.</p>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">Seguridad — Bitácoras</span>
+    <h2>Bitácoras de Acceso a los Buzones de Correo</h2>
+    <img class="content-img" src="recurvisual/bitacoras_correo.jpg" alt="Bitácoras de acceso al correo">
+    <p>Son registros que almacenan información sobre los accesos realizados al correo electrónico, como fechas y usuarios. Ayudan a mantener el control y la seguridad de las cuentas.</p>
+    <p>Las bitácoras registran datos como: quién accedió al buzón, desde qué dirección IP, en qué fecha y hora, qué acciones realizó (lectura, envío, eliminación) y si hubo intentos de acceso fallidos. Estos registros son fundamentales para auditorías de seguridad y para la detección de accesos no autorizados.</p>
+    <div class="tags">
+      <span class="tag">Fecha y hora</span>
+      <span class="tag">Dirección IP</span>
+      <span class="tag">Usuario</span>
+      <span class="tag">Acciones realizadas</span>
+      <span class="tag">Intentos fallidos</span>
+      <span class="tag">Auditoría</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN DE VIDEOS
+  ═══════════════════════════════════════ -->
+  <div class="section-label" style="margin-top:52px;">Videos de Evaluación 2.2</div>
+
+  <div class="video-card" id="video-card-0">
+    <h3>🎬 Sketch — Noticiero Informático</h3>
+    <div class="youtube-player">
+      <iframe id="yt-frame-0" src="https://www.youtube.com/embed/cghN2nVUTzI?enablejsapi=1&modestbranding=1&rel=0&playsinline=1" allowfullscreen allow="autoplay; fullscreen"></iframe>
+    </div>
+    <div class="video-controls" data-player="0">
+      <button class="ctrl-btn" data-action="rewind" title="Retroceder 10s">⏪ 10s</button>
+      <button class="ctrl-btn" data-action="playpause" title="Reproducir/Pausa">▶</button>
+      <button class="ctrl-btn" data-action="forward" title="Adelantar 10s">⏩ 10s</button>
+      <button class="ctrl-btn ctrl-next" data-action="next" title="Siguiente video">Siguiente →</button>
+      <button class="ctrl-btn" data-action="pip" title="Modo ventana">🗔</button>
+      <button class="ctrl-btn" data-action="fullscreen" title="Pantalla completa">⛶</button>
+    </div>
+  </div>
+
+  <div class="video-card" id="video-card-1">
+    <h3>🎥 Entrevistas — Normatividad Informática</h3>
+    <div class="youtube-player">
+      <iframe id="yt-frame-1" src="https://www.youtube.com/embed/uKCxfyywqYA?enablejsapi=1&modestbranding=1&rel=0&playsinline=1" allowfullscreen allow="autoplay; fullscreen"></iframe>
+    </div>
+    <div class="video-controls" data-player="1">
+      <button class="ctrl-btn" data-action="rewind" title="Retroceder 10s">⏪ 10s</button>
+      <button class="ctrl-btn" data-action="playpause" title="Reproducir/Pausa">▶</button>
+      <button class="ctrl-btn" data-action="forward" title="Adelantar 10s">⏩ 10s</button>
+      <button class="ctrl-btn ctrl-next" data-action="next" title="Siguiente video">Siguiente →</button>
+      <button class="ctrl-btn" data-action="pip" title="Modo ventana">🗔</button>
+      <button class="ctrl-btn" data-action="fullscreen" title="Pantalla completa">⛶</button>
+    </div>
+  </div>
+
+  <script>
+  var players = [];
+  var playerState = {};
+  var apiReady = false;
+
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+
+  function onYouTubeIframeAPIReady() {
+    apiReady = true;
+    try {
+      players[0] = new YT.Player('yt-frame-0', {
+        events: {
+          onStateChange: function(e) {
+            if (e.data === YT.PlayerState.PLAYING) {
+              playerState[0] = 'playing';
+              var btn = document.querySelector('.video-controls[data-player="0"] [data-action="playpause"]');
+              if (btn) btn.textContent = '⏸';
+            } else if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) {
+              playerState[0] = 'paused';
+              var btn = document.querySelector('.video-controls[data-player="0"] [data-action="playpause"]');
+              if (btn) btn.textContent = '▶';
+            }
+          }
+        }
+      });
+      players[1] = new YT.Player('yt-frame-1', {
+        events: {
+          onStateChange: function(e) {
+            if (e.data === YT.PlayerState.PLAYING) {
+              playerState[1] = 'playing';
+              var btn = document.querySelector('.video-controls[data-player="1"] [data-action="playpause"]');
+              if (btn) btn.textContent = '⏸';
+            } else if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) {
+              playerState[1] = 'paused';
+              var btn = document.querySelector('.video-controls[data-player="1"] [data-action="playpause"]');
+              if (btn) btn.textContent = '▶';
+            }
+          }
+        }
+      });
+    } catch(e) {
+      console.warn('YouTube API error:', e);
+    }
+  }
+
+  function getPlayer(idx) {
+    return apiReady && players[idx] && players[idx].getCurrentTime ? players[idx] : null;
+  }
+
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('.ctrl-btn');
+    if (!btn) return;
+    var controls = btn.closest('.video-controls');
+    if (!controls) return;
+    var playerIdx = parseInt(controls.dataset.player, 10);
+    var action = btn.dataset.action;
+    var player = getPlayer(playerIdx);
+
+    switch (action) {
+      case 'rewind': {
+        if (!player) break;
+        var t = player.getCurrentTime();
+        player.seekTo(Math.max(0, t - 10), true);
+        break;
+      }
+      case 'forward': {
+        if (!player) break;
+        var t = player.getCurrentTime();
+        player.seekTo(t + 10, true);
+        break;
+      }
+      case 'playpause': {
+        if (!player) break;
+        if (playerState[playerIdx] === 'playing') {
+          player.pauseVideo();
+        } else {
+          player.playVideo();
+        }
+        break;
+      }
+      case 'next': {
+        var otherIdx = playerIdx === 0 ? 1 : 0;
+        var otherPlayer = getPlayer(otherIdx);
+        if (otherPlayer && player && player.pauseVideo) {
+          player.pauseVideo();
+          otherPlayer.playVideo();
+          var card = document.getElementById('video-card-' + otherIdx);
+          if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        break;
+      }
+      case 'fullscreen': {
+        var card = document.getElementById('video-card-' + playerIdx);
+        if (card) {
+          if (card.requestFullscreen) { card.requestFullscreen(); }
+          else if (card.webkitRequestFullscreen) { card.webkitRequestFullscreen(); }
+        }
+        break;
+      }
+      case 'pip': {
+        toggleMiniPlayer(playerIdx);
+        break;
+      }
+    }
+  });
+
+  function toggleMiniPlayer(idx) {
+    var card = document.getElementById('video-card-' + idx);
+    if (!card) return;
+    var container = card.querySelector('.youtube-player');
+    if (!container) return;
+    var existingMini = document.querySelector('.mini-player');
+    if (existingMini) {
+      if (existingMini.dataset.playerIdx == idx) { restoreFromMini(idx); return; }
+      restoreFromMini(parseInt(existingMini.dataset.playerIdx, 10));
+    }
+    createMiniPlayer(idx, container, card);
+  }
+
+  function createMiniPlayer(idx, container, card) {
+    var mini = document.createElement('div');
+    mini.className = 'mini-player';
+    mini.dataset.playerIdx = idx;
+    var placeholder = document.createElement('div');
+    placeholder.className = 'youtube-player-placeholder';
+    placeholder.style.display = 'none';
+    container.parentNode.insertBefore(placeholder, container);
+    mini.appendChild(container);
+    var closeBtn = document.createElement('button');
+    closeBtn.className = 'mini-close';
+    closeBtn.innerHTML = '✕';
+    closeBtn.addEventListener('click', function(e) { e.stopPropagation(); restoreFromMini(idx); });
+    mini.appendChild(closeBtn);
+    document.body.appendChild(mini);
+  }
+
+  function restoreFromMini(idx) {
+    var mini = document.querySelector('.mini-player');
+    if (!mini) return;
+    var card = document.getElementById('video-card-' + idx);
+    if (!card) return;
+    var container = mini.querySelector('.youtube-player');
+    if (!container) return;
+    var placeholder = card.querySelector('.youtube-player-placeholder');
+    if (placeholder) { placeholder.parentNode.insertBefore(container, placeholder); placeholder.remove(); }
+    else { card.insertBefore(container, card.querySelector('.video-controls')); }
+    mini.remove();
+  }
+  </script>
+
+</div>
+
+</body>
+</html>

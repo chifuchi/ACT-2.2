@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapa Mental — Autoría y Creación de Software</title>
+<link rel="stylesheet" href="estilos.css">
+<style>
+  body{
+    background:
+      radial-gradient(900px 600px at 50% -10%, rgba(201,168,76,0.08), transparent 60%),
+      var(--bg);
+    overflow-x:hidden;
+  }
+
+  .map-head{text-align:center; padding:70px 24px 30px; max-width:780px; margin:0 auto;}
+  .map-head .eyebrow{
+    display:inline-block; font-size:10px; font-weight:600;
+    letter-spacing:0.22em; text-transform:uppercase; color:var(--gold);
+    border:1px solid var(--gold-line); background:var(--gold-dim);
+    padding:5px 14px; border-radius:3px; margin-bottom:18px;
+  }
+  .map-head h1{
+    font-family:'Cormorant Garamond', serif;
+    font-size:clamp(32px, 5vw, 50px); font-weight:700;
+    color:var(--white); line-height:1.1; margin-bottom:14px;
+  }
+  .map-head p{font-size:14px; color:#888; font-weight:300; max-width:580px; margin:0 auto;}
+
+  .volver{
+    position:fixed; top:18px; left:18px; z-index:50;
+    font-size:11px; font-weight:600; letter-spacing:0.16em;
+    text-transform:uppercase; color:var(--gold);
+    border:1px solid var(--gold-line); background:rgba(0,0,0,0.6);
+    padding:8px 14px; border-radius:3px;
+    text-decoration:none; backdrop-filter:blur(10px);
+  }
+  .volver:hover{background:var(--gold-dim); color:var(--white);}
+
+  .canvas{
+    position:relative;
+    width:min(1200px, 96%);
+    aspect-ratio: 16 / 11;
+    margin:20px auto 80px;
+  }
+
+  .canvas svg{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    pointer-events:none; z-index:1;
+  }
+  .canvas svg path{
+    fill:none; stroke:url(#goldGrad);
+    stroke-width:1.2; stroke-linecap:round;
+  }
+
+  .hub{
+    position:absolute; top:50%; left:50%;
+    transform:translate(-50%, -50%); z-index:3;
+    background:linear-gradient(145deg, #1a1612, #0a0805);
+    border:2px solid var(--gold); color:var(--gold);
+    padding:22px 28px; border-radius:50%;
+    width:210px; height:210px;
+    display:flex; flex-direction:column;
+    justify-content:center; align-items:center;
+    box-shadow:
+      0 0 0 8px rgba(201,168,76,0.06),
+      0 0 60px rgba(201,168,76,0.25),
+      inset 0 0 40px rgba(201,168,76,0.08);
+    text-align:center;
+  }
+  .hub .ico{font-size:34px; margin-bottom:6px; filter:drop-shadow(0 0 12px rgba(201,168,76,0.5));}
+  .hub .label{font-family:'Cormorant Garamond', serif; font-size:17px; font-weight:600; color:var(--white); line-height:1.2;}
+
+  .branch{
+    position:absolute;
+    width:24%;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:16px 18px; z-index:2;
+    box-shadow:0 14px 40px rgba(0,0,0,0.6);
+    transition:transform .25s, border-color .25s;
+  }
+  .branch::before{
+    content:''; position:absolute;
+    left:0; top:14px; bottom:14px; width:2px;
+    background:var(--gold); opacity:.7;
+  }
+  .branch:hover{transform:translateY(-3px); border-color:var(--gold-line);}
+  .branch h2{
+    font-family:'Cormorant Garamond', serif;
+    font-size:16.5px; font-weight:600; color:var(--white);
+    margin-bottom:9px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .branch h2 .ico{font-size:17px; color:var(--gold); flex-shrink:0;}
+  .branch ul{list-style:none; padding:0; margin:0;}
+  .branch li{font-size:12.5px; line-height:1.5; color:#9a9896; font-weight:300; padding:3px 0;}
+  .branch li b{color:var(--white); font-weight:500;}
+
+  /* 5 ramas alrededor del hub */
+  .b1{top:4%;  left:2%;}
+  .b2{top:4%;  right:2%;}
+  .b3{top:50%; left:1%;  transform:translateY(-50%); width:22%;}
+  .b4{top:50%; right:1%; transform:translateY(-50%); width:22%;}
+  .b5{bottom:3%; left:50%; transform:translateX(-50%); width:36%;}
+
+  @media(max-width:1000px){
+    .canvas{aspect-ratio:auto; width:100%; padding:10px 16px 60px; margin:10px auto;
+      display:flex; flex-direction:column; align-items:center; gap:14px;}
+    .canvas svg{display:none;}
+    .hub{position:relative; top:auto; left:auto; transform:none; width:180px; height:180px; margin-bottom:6px;}
+    .hub .ico{font-size:30px;}
+    .hub .label{font-size:15px;}
+    .branch{
+      position:relative; top:auto; left:auto; right:auto; bottom:auto;
+      transform:none !important;
+      width:100%; max-width:520px;
+    }
+    .branch::after{
+      content:''; position:absolute; top:-14px; left:50%;
+      width:1px; height:14px; background:var(--gold-line);
+    }
+  }
+
+  @media(max-width:420px){
+    .map-head{padding:60px 16px 20px;}
+    .map-head h1{font-size:26px;}
+  }
+</style>
+</head>
+<body>
+
+<a href="actividades2.html" class="volver">← Volver</a>
+
+<header class="map-head">
+  <span class="eyebrow">Mapa Conceptual 3 · Cierre</span>
+  <h1>Autoría y Creación de Software</h1>
+  <p>Marco jurídico que protege al creador: propiedad intelectual e industrial, registro, contratos y modalidades de licencia.</p>
+</header>
+
+<section class="canvas">
+
+  <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+    <defs>
+      <radialGradient id="goldGrad" cx="50" cy="50" r="45" gradientUnits="userSpaceOnUse">
+        <stop offset="0%"  stop-color="#c9a84c" stop-opacity="0.15"/>
+        <stop offset="50%" stop-color="#c9a84c" stop-opacity="0.7"/>
+        <stop offset="100%" stop-color="#c9a84c" stop-opacity="0.15"/>
+      </radialGradient>
+    </defs>
+    <!-- desde hub (50,50) hacia las 5 ramas -->
+    <path d="M 50 50 C 40 40, 30 28, 20 16"/>   <!-- b1 -->
+    <path d="M 50 50 C 60 40, 70 28, 80 16"/>   <!-- b2 -->
+    <path d="M 50 50 C 38 50, 25 50, 14 50"/>   <!-- b3 -->
+    <path d="M 50 50 C 62 50, 75 50, 86 50"/>   <!-- b4 -->
+    <path d="M 50 50 C 50 70, 50 82, 50 92"/>   <!-- b5 -->
+  </svg>
+
+  <div class="hub">
+    <span class="ico">⚖️</span>
+    <span class="label">Autoría y Creación<br>de Software</span>
+  </div>
+
+  <article class="branch b1">
+    <h2><span class="ico">📘</span>Propiedad Intelectual</h2>
+    <ul>
+      <li><b>Protege:</b> la expresión del código fuente.</li>
+      <li><b>Naturaleza:</b> el software es obra literaria.</li>
+      <li><b>Derechos:</b> morales y patrimoniales.</li>
+    </ul>
+  </article>
+
+  <article class="branch b2">
+    <h2><span class="ico">🏭</span>Propiedad Industrial</h2>
+    <ul>
+      <li><b>Protege:</b> funcionalidad e invenciones.</li>
+      <li><b>Marcas:</b> nombre y logotipo.</li>
+      <li><b>Patentes:</b> soluciones técnicas.</li>
+    </ul>
+  </article>
+
+  <article class="branch b3">
+    <h2><span class="ico">📝</span>Registro</h2>
+    <ul>
+      <li><b>Solicitud</b> ante INDAUTOR.</li>
+      <li><b>Identificación</b> del autor.</li>
+      <li><b>Material:</b> código y manuales.</li>
+      <li><b>Pago</b> de inscripción.</li>
+    </ul>
+  </article>
+
+  <article class="branch b4">
+    <h2><span class="ico">📄</span>Contratos y Licencias</h2>
+    <ul>
+      <li><b>Licencia:</b> permiso de uso.</li>
+      <li><b>Contratos:</b> SLA y cesión.</li>
+      <li><b>Cláusulas:</b> límites y garantías.</li>
+    </ul>
+  </article>
+
+  <article class="branch b5">
+    <h2><span class="ico">⚖️</span>Software Privado y Público</h2>
+    <ul>
+      <li><b>Privativo:</b> código cerrado, sin redistribución.</li>
+      <li><b>Público / Libre:</b> código abierto, redistribuible (GPL, MIT, Apache).</li>
+    </ul>
+  </article>
+
+</section>
+
+</body>
+</html>

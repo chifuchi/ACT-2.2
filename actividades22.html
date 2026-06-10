@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actividades 2.2 — Diseño del Aula de Informática</title>
+  <meta name="description" content="Diseño completo del aula/taller de informática: diagrama, muebles, equipos, software, personal y reglamento.">
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    /* Tabla de personal */
+    .staff-table { width:100%; border-collapse:collapse; margin-top:16px; }
+    .staff-table th {
+      font-size:10px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
+      color:var(--gold); padding:10px 14px; border-bottom:1px solid var(--gold-line); text-align:left;
+    }
+    .staff-table td {
+      font-size:12.5px; color:#9a9896; padding:12px 14px;
+      border-bottom:1px solid var(--border); font-weight:300; vertical-align:top;
+    }
+    .staff-table tr:last-child td { border-bottom:none; }
+    .staff-table tr:hover td { background:rgba(255,255,255,0.02); }
+    .staff-table ul { padding-left:16px; margin:0; }
+    .staff-table ul li { font-size:12px; margin-bottom:4px; }
+
+    /* Imagen de plano grande */
+    .plano-img {
+      width:100%; max-height:480px; object-fit:contain;
+      border-radius:8px; margin:18px 0;
+      border:1px solid var(--border);
+      background:#0a0a0a;
+    }
+
+    /* Regla destacada */
+    .rule-card {
+      background:var(--surface2); border:1px solid var(--border);
+      border-radius:6px; padding:16px 18px; margin-bottom:10px;
+      border-left:3px solid var(--gold);
+    }
+    .rule-card strong { display:block; font-size:11px; color:var(--gold); margin-bottom:4px; letter-spacing:0.06em; text-transform:uppercase; }
+    .rule-card span { font-size:13px; color:#aaa8a4; font-weight:300; line-height:1.6; }
+
+    @media(max-width:700px){
+      .staff-table th { font-size:9px; padding:8px 10px; }
+      .staff-table td { font-size:11.5px; padding:8px 10px; }
+      .plano-img { max-height:260px; }
+      .rule-card { padding:12px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <input type="checkbox" id="menu-toggle" class="menu-toggle">
+  <label for="menu-toggle" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="resultado1.html">Resultado 1.1</a></li>
+    <li><a href="resultado2.html">Resultado 1.2</a></li>
+    <li><a href="resultado21.html">Resultado 2.1</a></li>
+    <li><a href="resultado22.html">Resultado 2.2</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <img class="hero-img" src="recurvisual/hero_resultado2.jpg" alt="Actividades 2.2">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Actividades del Resultado 2.2</span>
+    <h1>Diseño del Aula de Informática</h1>
+    <p>Diagrama arquitectónico, muebles y equipos, software institucional, organización del personal y reglamento del aula/taller.</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ══════════════════════════════════════
+       1. DIAGRAMA DEL AULA
+  ═══════════════════════════════════════ -->
+  <div class="section-label">1. Diagrama del Aula de Informática</div>
+
+  <div class="card">
+    <span class="card-tag">i — Distribución</span>
+    <h2>División de las Áreas</h2>
+    <img class="plano-img" src="recurvisual/resultado22/plano_aula_taller.jpeg" alt="Plano Arquitectónico del Aula / Taller de Cómputo (12 x 8 m)">
+    <p>Plano arquitectónico a escala 1:100 del aula/taller de cómputo de 12 × 8 metros. Muestra la distribución de 25 estaciones de trabajo para alumnos organizadas en "U", zona del instructor/servidor, escritorio del docente, rack de telecomunicaciones, área de mantenimiento/taller físico, zona de diagnóstico y ensamble, pizarra blanca, pantalla de proyector, y servicio sanitario.</p>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">ii — Instalación Eléctrica</span>
+    <h2>Instalación Eléctrica y de Iluminación</h2>
+    <div class="virus-grid">
+      <div class="virus-item">
+        <strong>Iluminación</strong>
+        <span>8 lámparas LED de panel de bajo consumo distribuidas uniformemente para evitar reflejos en pantallas.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Tomas de Corriente</strong>
+        <span>Tomacorriente dúplex polarizado con conexión a tierra, en canaletas plásticas perimetrales.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Tablero de Distribución</strong>
+        <span>Pastillas termomagnéticas independientes: una por fila de PC, otra para iluminación y otra para A/C.</span>
+      </div>
+      <div class="virus-item">
+        <strong>No-Break (UPS)</strong>
+        <span>UPS de 2200VA para proteger el servidor y los switches del rack principal.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">iii — Seguridad y Confort</span>
+    <h2>Medidas de Seguridad y Confort</h2>
+    <div class="virus-grid">
+      <div class="virus-item">
+        <strong>Accesos</strong>
+        <span>Puerta principal de aluminio con apertura hacia afuera. Salida de emergencia con barra antipánico.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Prevención de Incendios</strong>
+        <span>1 detector de humo fotoeléctrico + 2 extintores de CO2 para equipo electrónico.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Climatización</strong>
+        <span>2 minisplit de 24,000 BTU para mantener 22–24°C óptimos.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Higiene</strong>
+        <span>Estación de sanitización fija con dispensador automático de gel antibacterial.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       2. MUEBLES Y EQUIPOS DE CÓMPUTO
+  ═══════════════════════════════════════ -->
+  <div class="section-label" style="margin-top:52px;">2. Muebles y Equipos de Cómputo</div>
+
+  <div class="card">
+    <span class="card-tag">a — Infraestructura de Red</span>
+    <h2>Infraestructura de Red y Computadoras</h2>
+
+    <h3>Estaciones de Trabajo (25 + 1 docente)</h3>
+    <p>Procesador AMD Ryzen 5 o Intel Core i5, <strong>16 GB RAM</strong>, Disco SSD de 512 GB para arranque rápido de entornos de desarrollo y software, Monitores LED de 21.5".</p>
+
+    <h3>Servidor Local</h3>
+    <p>Computadora de altas prestaciones destinada a bases de datos locales, control de dominio y almacenamiento de prácticas.</p>
+
+    <h3>Topología y Cableado</h3>
+    <p>Topología en <strong>Estrella</strong>. Cableado estructurado con cable UTP Categoría 6, canalizado a través de canaletas de PVC de alta resistencia.</p>
+
+    <div class="virus-grid">
+      <div class="virus-item">
+        <strong>Switch</strong>
+        <span>1× administrable de 48 puertos Gigabit Ethernet.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Router</strong>
+        <span>1× conectado al módem del proveedor de internet escolar.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">b — Muebles</span>
+    <h2>Descripción de los Muebles</h2>
+    <div class="virus-grid">
+      <div class="virus-item">
+        <strong>Mesas Modulares</strong>
+        <span>Estructura metálica con espacio pasacables oculto, para 2–3 estudiantes.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Sillas Ergonómicas</strong>
+        <span>26 sillas con ruedas, ajuste de altura y respaldo transpirable.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Mesa de Taller</strong>
+        <span>Madera tratada con tapete antiestático para evitar descargas en componentes.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Armario de Herramientas</strong>
+        <span>Locker metálico con llave para destornilladores, cautines, multímetros y consumibles de red.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">c — Software</span>
+    <h2>Descripción del Software</h2>
+
+    <h3>Sistema Operativo</h3>
+    <p>Windows 11 Pro de 64 bits en todas las estaciones. <strong>Linux Ubuntu Server</strong> en el equipo servidor.</p>
+
+    <h3>Software de Desarrollo e Informática</h3>
+    <div class="tags">
+      <span class="tag">VS Code</span>
+      <span class="tag">NetBeans</span>
+      <span class="tag">Cisco Packet Tracer</span>
+      <span class="tag">MySQL Workbench</span>
+      <span class="tag">XAMPP</span>
+      <span class="tag">Git</span>
+      <span class="tag">Stencyl</span>
+      <span class="tag">Scratch</span>
+    </div>
+
+    <h3>Seguridad</h3>
+    <p>Antivirus institucional con consola de administración centralizada y software de congelamiento de disco (tipo <strong>Deep Freeze</strong>) para restaurar el estado original del sistema tras cada reinicio de clase.</p>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">d — Personal</span>
+    <h2>Descripción del Personal — Tabla de Puestos</h2>
+    <div style="overflow-x:auto;">
+      <table class="staff-table">
+        <thead>
+          <tr>
+            <th>Puesto</th>
+            <th>Perfil</th>
+            <th>Funciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:var(--text)">Encargado / Administrador del Taller</strong></td>
+            <td>Lic. en Informática, Ing. en Sistemas Computacionales o Profesional Técnico con título.</td>
+            <td>
+              <ul>
+                <li>Supervisar el uso correcto de las instalaciones.</li>
+                <li>Gestionar el inventario de hardware y software.</li>
+                <li>Coordinar los horarios de uso del aula.</li>
+                <li>Reportar fallas mayores a la dirección escolar.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--text)">Soporte Técnico / Auxiliar del Aula</strong></td>
+            <td>Profesional Técnico en Informática (egresado o pasante con certificado).</td>
+            <td>
+              <ul>
+                <li>Encender y apagar los equipos al inicio y fin de la jornada.</li>
+                <li>Mantenimiento preventivo (limpieza física, desfragmentación, actualizaciones).</li>
+                <li>Solucionar problemas de conectividad de red y fallas de software.</li>
+                <li>Apoyar a los docentes en la instalación de herramientas para sus clases.</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       3. POLÍTICAS Y REGLAMENTOS
+  ═══════════════════════════════════════ -->
+  <div class="section-label" style="margin-top:52px;">3. Políticas y Reglamentos del Aula/Taller</div>
+
+  <div class="card">
+    <span class="card-tag">Personal — Docentes</span>
+    <h2>Reglas para el Personal (Docentes y Administrativos)</h2>
+
+    <div class="rule-card">
+      <strong>Registro de Asistencia</strong>
+      <span>El docente a cargo del grupo debe firmar la bitácora de entrada y salida, especificando la materia, el grupo y la cantidad de alumnos presentes.</span>
+    </div>
+    <div class="rule-card">
+      <strong>Reporte de Incidencias</strong>
+      <span>Cualquier falla detectada en el hardware o software durante la sesión debe ser anotada de inmediato en el formato de reportes técnicos.</span>
+    </div>
+    <div class="rule-card">
+      <strong>Supervisión Activa</strong>
+      <span>El docente es responsable del orden dentro del aula y debe vigilar que los alumnos no modifiquen conexiones físicas ni configuraciones de red.</span>
+    </div>
+    <div class="rule-card">
+      <strong>Cierre Seguro</strong>
+      <span>Al terminar la última sesión del día, el encargado debe verificar que todos los equipos queden apagados, los aires acondicionados apagados y el rack bajo llave.</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">Usuarios — Alumnos</span>
+    <h2>Reglas para los Usuarios (Alumnos)</h2>
+
+    <div class="rule-card">
+      <strong>🚫 Prohibición de Alimentos</strong>
+      <span>Está estrictamente prohibido ingresar con alimentos, dulces o cualquier tipo de bebida al taller para evitar daños irreparables por derrames.</span>
+    </div>
+    <div class="rule-card">
+      <strong>🎓 Uso Exclusivo Académico</strong>
+      <span>Queda prohibido descargar, instalar o ejecutar videojuegos, software de minería, archivos pirata o navegar en páginas de contenido no educativo.</span>
+    </div>
+    <div class="rule-card">
+      <strong>🪑 Cuidado del Mobiliario</strong>
+      <span>No se permite rayar las mesas, balancearse en las sillas ergonómicas, ni desconectar los cables de red o de energía de las computadoras.</span>
+    </div>
+    <div class="rule-card">
+      <strong>🧹 Orden y Limpieza</strong>
+      <span>Al finalizar la clase, cada estudiante debe cerrar su sesión de usuario, acomodar la silla, dejar su área limpia y retirar sus pertenencias personales.</span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

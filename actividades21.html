@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actividades 2.1 — Informe de Políticas y Normatividad TI</title>
+  <meta name="description" content="Informe de políticas, controles y normatividad de TI aplicables al equipo de cómputo y telecomunicaciones.">
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    /* Tabla de asignación */
+    .assign-table { width:100%; border-collapse:collapse; margin-top:16px; font-size:13px; }
+    .assign-table th {
+      font-size:10px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
+      color:var(--gold); padding:10px 12px; border-bottom:1px solid var(--gold-line); text-align:left;
+    }
+    .assign-table td {
+      font-size:12.5px; color:#9a9896; padding:10px 12px;
+      border-bottom:1px solid var(--border); font-weight:300; vertical-align:top;
+    }
+    .assign-table tr:last-child td { border-bottom:none; }
+    .assign-table tr:hover td { background:rgba(255,255,255,0.02); }
+
+    /* Imagen de plano grande */
+    .plano-img {
+      width:100%; max-height:420px; object-fit:contain;
+      border-radius:8px; margin:18px 0;
+      border:1px solid var(--border);
+      background:#0a0a0a;
+    }
+
+    @media(max-width:700px){
+      .assign-table th { font-size:9px; padding:8px 8px; }
+      .assign-table td { font-size:11.5px; padding:8px 8px; }
+      .plano-img { max-height:260px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <input type="checkbox" id="menu-toggle" class="menu-toggle">
+  <label for="menu-toggle" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="resultado1.html">Resultado 1.1</a></li>
+    <li><a href="resultado2.html">Resultado 1.2</a></li>
+    <li><a href="resultado21.html">Resultado 2.1</a></li>
+    <li><a href="resultado22.html">Resultado 2.2</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <img class="hero-img" src="recurvisual/hero_resultado21.jpg" alt="Actividades 2.1">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Actividades del Resultado 2.1</span>
+    <h1>Informe de Políticas, Controles y Normatividad de TI</h1>
+    <p>Políticas de asignación, seguridad física del site, redes LAN/WAN, inventario tecnológico y normatividad de uso.</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ══════════════════════════════════════
+       1. POLÍTICAS DE ASIGNACIÓN Y CONTROL
+  ═══════════════════════════════════════ -->
+  <div class="section-label">1. Políticas de Asignación y Control Interno de Bienes Informáticos</div>
+
+  <div class="card">
+    <span class="card-tag">1.1 — Responsabilidad</span>
+    <h2>Política de Responsabilidad y Asignación de Equipos</h2>
+
+    <h3>Mecanismo de Responsabilidad</h3>
+    <p>Cada empleado es legal y administrativamente responsable del equipo de cómputo y periféricos asignados a su cargo. Al recibir un equipo, el empleado firmará el <strong>Formato de Asignación de Equipo</strong>, comprometiéndose a usarlo exclusivamente para fines laborales y a reportar fallas de inmediato.</p>
+
+    <h3>Priorización de Entrega</h3>
+    <p>Los equipos nuevos o de mayor rendimiento se asignarán con base en las necesidades críticas del puesto (ej. Desarrollo y Redes tendrán prioridad sobre áreas administrativas básicas). Los equipos liberados pasarán a revisión técnica para su posterior reasignación a áreas de menor demanda técnica.</p>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">1.2 — Formato de Asignación</span>
+    <h2>Formato de Asignación de Equipo y Responsable</h2>
+    <div style="overflow-x:auto;">
+      <table class="assign-table">
+        <thead>
+          <tr>
+            <th>No. Serie</th>
+            <th>CPU</th>
+            <th>Monitor</th>
+            <th>Nombre</th>
+            <th>Puesto</th>
+            <th>Depto.</th>
+            <th>Asigna</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:var(--gold)">MXL60301X</strong></td>
+            <td>INV-CPU-2026-01</td>
+            <td>INV-MON-2026-01</td>
+            <td><strong style="color:var(--text)">Carlos Mendoza</strong></td>
+            <td>Programador</td>
+            <td>Sistemas</td>
+            <td>Lic. Ángel R. Chan Rosado</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--gold)">MXL60302Y</strong></td>
+            <td>INV-CPU-2026-02</td>
+            <td>INV-MON-2026-02</td>
+            <td><strong style="color:var(--text)">Sofía Alcocer</strong></td>
+            <td>Diseñador Web</td>
+            <td>Soporte Técnico</td>
+            <td>Lic. Ángel R. Chan Rosado</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       2. SEGURIDAD FÍSICA DEL SITE
+  ═══════════════════════════════════════ -->
+  <div class="section-label" style="margin-top:52px;">2. Seguridad Física del Site (Sitio Informático)</div>
+
+  <div class="card">
+    <span class="card-tag">2.1 — Controles de Acceso</span>
+    <h2>Controles de Acceso Sanitario y Físico</h2>
+    <p>Al ingreso al área del site, todo personal autorizado deberá aplicar gel antibacterial, verificar que su temperatura sea óptima y pasar por el tapete sanitizante.</p>
+    <p>Las puertas y ventanas permanecerán cerradas y aseguradas mediante <strong>cerradura biométrica</strong> o <strong>tarjeta magnética</strong>.</p>
+    <div class="virus-grid">
+      <div class="virus-item">
+        <strong>Gel Antibacterial</strong>
+        <span>Dispensador automático en la entrada del site.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Tapete Sanitizante</strong>
+        <span>Paso obligatorio para todo el personal autorizado.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Cerradura Biométrica</strong>
+        <span>Acceso mediante huella digital o tarjeta magnética.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Cámaras de Seguridad</strong>
+        <span>Tipo domo orientadas para vigilancia continua.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">2.2 — Plano 2D del Site</span>
+    <h2>Instalación Física — Plano de Planta del Site de Telecomunicaciones</h2>
+    <img class="plano-img" src="recurvisual/resultado21/plano_site_telecomunicaciones.jpeg" alt="Plano de Planta: Site de Telecomunicaciones">
+    <p>Plano 2D del site que muestra la distribución del rack de red, aires acondicionados, detectores de humo, extintores CO2, cámaras de seguridad tipo domo, termómetro digital de pared, lector de tarjetas de proximidad, dispensador de gel y tapete sanitizante.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       3. POLÍTICAS DE REDES LAN Y WAN
+  ═══════════════════════════════════════ -->
+  <div class="section-label" style="margin-top:52px;">3. Políticas de Redes LAN y WAN</div>
+
+  <div class="card">
+    <span class="card-tag">3.1 — Seguridad de Datos</span>
+    <h2>Seguridad de Datos y Respaldo</h2>
+    <h3>Protección de Datos</h3>
+    <p>Todas las terminales deben tener instalado el software antispyware corporativo, el Firewall local activado, y la herramienta <strong>Deep Freeze</strong> configurada en el disco del sistema (C:\) para que la escuela o empresa mantenga los equipos limpios ante cualquier reinicio.</p>
+    <h3>Calendario de Respaldos</h3>
+    <p>Los servidores realizarán respaldos automatizados de bases de datos de forma <strong>diaria a las 23:00 hrs</strong>. Los usuarios finales deberán sincronizar sus archivos con el servidor local los viernes de cada semana.</p>
+    <div class="tags">
+      <span class="tag">Antispyware</span>
+      <span class="tag">Firewall local</span>
+      <span class="tag">Deep Freeze</span>
+      <span class="tag">Respaldo diario</span>
+      <span class="tag">Sincronización semanal</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">3.2 — Diagrama de Red</span>
+    <h2>Diagrama de Red del Sitio — Topología 2D</h2>
+    <img class="plano-img" src="recurvisual/resultado21/diagrama_red.jpeg" alt="Diagrama de Red del Sitio — Topología 2D">
+    <p>Topología del sitio que muestra la conexión desde el proveedor ISP de Internet, pasando por el Router, Firewall y Switch hacia las terminales del área de desarrollo, servidor local de base de datos, conmutador telefónico, UPS/No-Break y la impresora de red multifuncional compartida.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       4. INVENTARIO Y GESTIÓN TECNOLÓGICA
+  ═══════════════════════════════════════ -->
+  <div class="section-label" style="margin-top:52px;">4. Contenido Detallado del Inventario y Gestión Tecnológica</div>
+
+  <div class="card">
+    <span class="card-tag">a — Ubicación</span>
+    <h2>Ubicación de Funciones y Equipos Sujetos a Revisión</h2>
+    <p>Todos los servidores, ruteadores, concentradores de red y computadoras administrativas se localizan físicamente en el <strong>Edificio A, planta alta</strong>, sujetos a auditoría mensual coordinada por la Jefatura de Informática.</p>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">b — Arrendamiento</span>
+    <h2>Arrendamiento de Equipo Informático vs. Compra</h2>
+    <p>Para proyectos temporales de desarrollo web o prácticas escolares extensas, se priorizará el esquema de <strong>arrendamiento financiero (renta)</strong> con el proveedor TecnoRenta S.A., garantizando sustitución inmediata del hardware por obsolescencia o daño, evitando la devaluación de activos propios.</p>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">c — Mantenimiento</span>
+    <h2>Mantenimiento Preventivo y Correctivo</h2>
+    <div class="virus-grid">
+      <div class="virus-item">
+        <strong>Preventivo — Trimestral</strong>
+        <span>Enero, Abril, Julio, Octubre. Todos los equipos listados en el formato de asignación.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Correctivo — &lt;4 horas</strong>
+        <span>Tiempo de respuesta menor a 4 horas tras el reporte del usuario.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">d — Telecomunicaciones</span>
+    <h2>Equipos de Comunicación y Telecomunicaciones — Especificaciones Técnicas</h2>
+    <div class="virus-grid">
+      <div class="virus-item">
+        <strong>Servidor Central</strong>
+        <span>Dell PowerEdge T350, Intel Xeon, 32GB RAM, 2TB SSD.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Terminales de Trabajo</strong>
+        <span>HP ProDesk 400, Intel Core i5, 16GB RAM, SSD 512GB, Monitor 21.5".</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">e — Adquisición</span>
+    <h2>Adquisición de Bienes y Contratación de Servicios</h2>
+    <ol>
+      <li>Requisición del departamento solicitante.</li>
+      <li>Revisión y autorización por el Lic. Ángel Rolando Chan Rosado.</li>
+      <li>Cotización obligatoria con un mínimo de <strong>3 proveedores certificados</strong>.</li>
+      <li>Emisión de la orden de compra.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">f — Detalle de Equipo</span>
+    <h2>Detalle del Equipo de Cómputo</h2>
+    <div class="virus-grid">
+      <div class="virus-item">
+        <strong>Computadoras</strong>
+        <span>15 Escritorio HP ProDesk + 5 Laptops Lenovo ThinkPad.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Impresoras / Scanners</strong>
+        <span>2 Láser Brother HL-L2350DW + 1 Scanner Epson Perfection.</span>
+      </div>
+      <div class="virus-item">
+        <strong>Cámaras y Periféricos</strong>
+        <span>4 Webcams Logitech C920 + tabletas digitalizadoras.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">g — Redes</span>
+    <h2>Equipo de Redes y Telecomunicaciones</h2>
+    <h3>Componentes de Red</h3>
+    <div class="virus-grid">
+      <div class="virus-item">
+        <strong>Ruteador</strong>
+        <span>Cisco ISR 4331</span>
+      </div>
+      <div class="virus-item">
+        <strong>Switches</strong>
+        <span>2× Cisco Catalyst 2960</span>
+      </div>
+      <div class="virus-item">
+        <strong>Repetidores</strong>
+        <span>2× TP-Link</span>
+      </div>
+      <div class="virus-item">
+        <strong>Conmutador Telefónico</strong>
+        <span>Grandstream analógico/IP</span>
+      </div>
+    </div>
+
+    <h3>Software Instalado</h3>
+    <div class="tags">
+      <span class="tag">Windows 11 Pro</span>
+      <span class="tag">Ubuntu Server 24.04</span>
+      <span class="tag">Office 365 Corporativo</span>
+      <span class="tag">SQL Server</span>
+      <span class="tag">VS Code</span>
+      <span class="tag">Node.js</span>
+    </div>
+
+    <h3>Contratación de Servicios de Informática</h3>
+    <ul>
+      <li><strong>Desarrollo:</strong> Outsourcing con CodeYucatán para módulos específicos.</li>
+      <li><strong>Soporte y Cableado:</strong> Servicio interno; cableado categoría 6 bajo póliza anual con RedesVillas.</li>
+      <li><strong>Internet:</strong> Enlace dedicado de 200 Mbps simétricos con Telmex Negocios.</li>
+    </ul>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       5. NORMATIVIDAD DE REDES LAN
+  ═══════════════════════════════════════ -->
+  <div class="section-label" style="margin-top:52px;">5. Normatividad y Políticas de Uso de Redes LAN</div>
+
+  <div class="card">
+    <span class="card-tag">Reglamento de Uso</span>
+    <h2>Políticas de Uso de la Red LAN</h2>
+
+    <h3>h. Reglamento de Uso</h3>
+    <p>Queda estrictamente prohibido conectar dispositivos personales (smartphones, laptops propias) a la red LAN cableada de la organización. No se permite la descarga de software sin autorización de la Jefatura.</p>
+
+    <h3>i. Asignación de Credenciales</h3>
+    <p>Todo usuario tendrá credenciales de acceso únicas vinculadas a su equipo y puesto.</p>
+
+    <h3>j. Garantías</h3>
+    <p>Los equipos adquiridos contarán con una vigencia de garantía mínima de <strong>3 años</strong> directamente con el fabricante.</p>
+
+    <h3>k. Monitoreo Ambiental</h3>
+    <p>El Aire Acondicionado mantendrá el Site a una temperatura constante de <strong>21°C</strong> y <strong>45% de humedad</strong>. El mantenimiento preventivo de los equipos de climatización será bimestral.</p>
+  </div>
+
+  <div class="card">
+    <span class="card-tag">Normatividad LAN</span>
+    <h2>Descripción de la Normatividad de Redes LAN</h2>
+
+    <h3>a. Sistema de Cableado Estructurado</h3>
+    <p>Todo nodo de red debe seguir el estándar <strong>TIA/EIA-568-B</strong>, debidamente etiquetado en el patch panel del rack y en la roseta del usuario.</p>
+
+    <h3>m. Manejo de Equipos de Comunicación</h3>
+    <p>Únicamente el Jefe de Proyecto Informática o el técnico asignado tienen acceso físico y contraseñas de configuración del Switch y Ruteador.</p>
+
+    <h3>n. Servicio Ininterrumpido de Corriente</h3>
+    <p>El Rack principal estará conectado a un <strong>No-Break Tripp Lite de 3000VA</strong> para soportar apagones repentinos. Se anexa cotización vigente para la adquisición de una Planta Eléctrica de Emergencia marca Generac de 15 kW con arranque automático.</p>
+
+    <h3>o. Memoria Técnica de la Red</h3>
+    <p>Documento maestro que archiva la distribución de los <strong>24 nodos</strong> instalados, mapas de canalización por canaleta plástica de alto impacto y la asignación del direccionamiento IP estático del sitio (<strong>192.168.1.0/24</strong>).</p>
+
+    <div class="tags">
+      <span class="tag">TIA/EIA-568-B</span>
+      <span class="tag">Patch Panel</span>
+      <span class="tag">No-Break 3000VA</span>
+      <span class="tag">24 nodos de red</span>
+      <span class="tag">192.168.1.0/24</span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
