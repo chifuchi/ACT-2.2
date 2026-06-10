@@ -380,7 +380,6 @@
       <button class="ctrl-btn" data-action="forward" title="Adelantar 10s">⏩ 10s</button>
       <button class="ctrl-btn ctrl-next" data-action="next" title="Siguiente video">Siguiente →</button>
       <button class="ctrl-btn" data-action="pip" title="Modo ventana">🗔</button>
-      <button class="ctrl-btn" data-action="fullscreen" title="Pantalla completa">⛶</button>
     </div>
   </div>
 
@@ -395,7 +394,6 @@
       <button class="ctrl-btn" data-action="forward" title="Adelantar 10s">⏩ 10s</button>
       <button class="ctrl-btn ctrl-next" data-action="next" title="Siguiente video">Siguiente →</button>
       <button class="ctrl-btn" data-action="pip" title="Modo ventana">🗔</button>
-      <button class="ctrl-btn" data-action="fullscreen" title="Pantalla completa">⛶</button>
     </div>
   </div>
 
@@ -489,14 +487,6 @@
           otherPlayer.playVideo();
           var card = document.getElementById('video-card-' + otherIdx);
           if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-        break;
-      }
-      case 'fullscreen': {
-        var card = document.getElementById('video-card-' + playerIdx);
-        if (card) {
-          if (card.requestFullscreen) { card.requestFullscreen(); }
-          else if (card.webkitRequestFullscreen) { card.webkitRequestFullscreen(); }
         }
         break;
       }
